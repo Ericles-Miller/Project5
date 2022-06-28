@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
              Instantiate(targets[index]);
         }
     }
-    private void UpdateScore(int scoreToAdd){
+    public void UpdateScore(int scoreToAdd){
         score+= scoreToAdd;
         scoreText.text = "Score:" + score;
     }
