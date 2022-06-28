@@ -33,5 +33,14 @@ public class Target : MonoBehaviour
     Vector3 RandomSpawPos(){
         return new Vector3(Random.Range(-xRange, xRange),ySpawPos);
     }
+
+    //func para usar o mouse 
+    private void OnMouseDown() {
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        Destroy(gameObject);
+    }
 }
 
