@@ -6,8 +6,10 @@ public class Target : MonoBehaviour
 {   
     private float minSpeed = 12, maxSpeed = 16, maxTorque = 10, ySpawPos =-6,xRange=4;
     private Rigidbody TargetRB;
+    public ParticleSystem explosionParticule;
     private GameManager gameManager;
     public int pointValue;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,7 @@ public class Target : MonoBehaviour
         TargetRB.AddTorque(RandomTorque(),RandomTorque(),RandomTorque(), ForceMode.Impulse);
         transform.position = RandomSpawPos();
 
-        //gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();  
     }
 
     // Update is called once per frame
@@ -41,7 +43,9 @@ public class Target : MonoBehaviour
     //func para usar o mouse 
     private void OnMouseDown() {
         Destroy(gameObject);
+        Instantiate(explosionParticule, transform.position, explosionParticule.transform.rotation);
         gameManager.UpdateScore(pointValue);
+        
     }
 
 
