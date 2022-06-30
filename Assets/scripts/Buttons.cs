@@ -7,7 +7,7 @@ public class Buttons : MonoBehaviour
 {   
     private Button button;
 
-
+    public float difficulty;
     private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
@@ -30,6 +30,6 @@ public class Buttons : MonoBehaviour
         Debug.Log(gameObject.name+ "was clicled");
 
         //chamo func para iniciar o game 
-        gameManager.startGame();
+        gameManager.startGame(difficulty);
     }
 }
