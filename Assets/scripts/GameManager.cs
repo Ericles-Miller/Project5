@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     //public GameObject[] targets2;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI GameOverText;
+    public bool IsGameActive;
     
     // Start is called before the first frame update
     private float spawnRate=1.0f; // var de tempo para spwnar os prefabs 
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {   
-        
+        IsGameActive = true;
         StartCoroutine(SpawnTarget());
         UpdateScore(0);
     }
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator SpawnTarget(){
-        while( true) {
+        while(IsGameActive) {
             yield return new WaitForSeconds(spawnRate);  // tempo de esperara para rodar os comandos abaixo 
              
              // funcao para gerar a pos entre o primeiro e ultimo elemento do vetor  
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver(){
         GameOverText.gameObject.SetActive(true);
+        IsGameActive = true;
     }
             
 }
