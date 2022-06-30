@@ -18,7 +18,6 @@ public class Target : MonoBehaviour
         TargetRB.AddForce(RandomForce(), ForceMode.Impulse);
         TargetRB.AddTorque(RandomTorque(),RandomTorque(),RandomTorque(), ForceMode.Impulse);
         transform.position = RandomSpawPos();
-
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();  
     }
 
@@ -51,6 +50,9 @@ public class Target : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         Destroy(gameObject);
+        if(!gameObject.CompareTag("Bomb")){
+            gameManager.GameOver();
+        }
     }
 }
 
