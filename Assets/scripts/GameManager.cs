@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     //public GameObject[] targets2;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI GameOverText;
+    public GameObject titleScreen;
+
     public bool IsGameActive;
     
     // Start is called before the first frame update
@@ -58,10 +60,13 @@ public class GameManager : MonoBehaviour
     public void startGame()
     {
         IsGameActive = true;
-        score 0;
+        score = 0;
         
         StartCoroutine(SpawnTarget());
         UpdateScore(0);
+        
+        // ocultando title de dificuldade 
+        titleScreen.gameObject.SetActive(false);
     }
             
 }
