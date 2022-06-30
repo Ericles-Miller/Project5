@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; // foi add para o restart do game 
+using UnityEngine.UI;
 using TMPro;
 public class GameManager : MonoBehaviour
 {   
@@ -14,6 +15,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     private float spawnRate=1.0f; // var de tempo para spwnar os prefabs 
     private int score;
+
+    //button restart
+    public Button restartButton;
 
 
 
@@ -47,6 +51,7 @@ public class GameManager : MonoBehaviour
     public void GameOver(){
         GameOverText.gameObject.SetActive(true);
         IsGameActive = false;
+        restartButton.gameObject.SetActive(true);
     }
     public void restartGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
