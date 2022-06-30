@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement; // foi add para o restart do game 
 using TMPro;
 public class GameManager : MonoBehaviour
 {   
@@ -47,6 +47,9 @@ public class GameManager : MonoBehaviour
     public void GameOver(){
         GameOverText.gameObject.SetActive(true);
         IsGameActive = false;
+    }
+    public void restartGame(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
             
 }
