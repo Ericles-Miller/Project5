@@ -42,9 +42,18 @@ public class Target : MonoBehaviour
     //func para usar o mouse 
     private void OnMouseDown() {
         if(gameManager.IsGameActive){
-            Destroy(gameObject);
-            Instantiate(explosionParticule, transform.position, explosionParticule.transform.rotation);
-            gameManager.UpdateScore(pointValue);
+            if(gameObject.CompareTag("Bomb")){
+                Destroy(gameObject);
+                Instantiate(explosionParticule, transform.position, explosionParticule.transform.rotation);
+                //gameManager.UpdateScore(pointValue);
+                gameManager.GameOver();
+            }
+            else {
+                Destroy(gameObject);
+                Instantiate(explosionParticule, transform.position, explosionParticule.transform.rotation);
+                gameManager.UpdateScore(pointValue);
+            }
+            
         }
         
 
