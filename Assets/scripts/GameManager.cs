@@ -8,16 +8,20 @@ public class GameManager : MonoBehaviour
     public List<GameObject> targets; //lista de prefabs --- no momento sao 4 
     //public GameObject[] targets2;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI GameOverText;
     
     // Start is called before the first frame update
     private float spawnRate=1.0f; // var de tempo para spwnar os prefabs 
     private int score;
 
 
+
     void Start()
     {   
+        
         StartCoroutine(SpawnTarget());
         UpdateScore(0);
+        GameOverText.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
